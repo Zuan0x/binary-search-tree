@@ -97,6 +97,26 @@ class BinarySearchTree {
         }
     }
 
+    //Preorder
+    //Perform preorder traversal on a tree from a given node
+    preorder(node: TreeNode | undefined) {
+        if(node !== undefined){
+            console.log(node.value)
+            this.preorder(node.left)
+            this.preorder(node.right)
+        }
+    }
+
+    //Postorder
+    //Perform postorder traversal on a tree from a given node
+    postorder(node: TreeNode | undefined) {
+        if(node !== undefined){
+            this.postorder(node.left)
+            this.postorder(node.right)
+            console.log(node.value)
+        }
+    }
+
     //Helper functions
     //Find min node
     findMinNode(node: TreeNode) {
@@ -119,6 +139,25 @@ class BinarySearchTree {
     }
 
     //Search
+    search(value: number, node: TreeNode) {
+        if(node === undefined){
+            return undefined
+        }
+        if(node.value > value){
+            return this.search(value, node.left)
+        }
+        if(node.value < value){
+            return this.search(value, node.right)
+        }
+        if(node.value === value){
+            return node
+        }
+    }
+
     //Get root node
+    getRootNode() {
+        return this.root
+    }
+
     //Get height of tree
 }
