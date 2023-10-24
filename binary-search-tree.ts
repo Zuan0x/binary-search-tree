@@ -90,7 +90,11 @@ class BinarySearchTree {
     //Inorder
     //Perform inorder traversal on a tree from a given node
     inorder(node: TreeNode | undefined) {
-        
+        if(node !== undefined){
+            this.inorder(node.left)
+            console.log(node.value)
+            this.inorder(node.right)
+        }
     }
 
     //Helper functions
